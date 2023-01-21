@@ -6,11 +6,11 @@ using DropMore;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle(DropMoreMain.MODNAME)]
+[assembly: AssemblyTitle(DropMoreLootMain.MODNAME)]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany(DropMoreMain.AUTHOR)]
-[assembly: AssemblyProduct(DropMoreMain.MODNAME)]
+[assembly: AssemblyCompany(DropMoreLootMain.AUTHOR)]
+[assembly: AssemblyProduct(DropMoreLootMain.MODNAME)]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -33,5 +33,5 @@ using DropMore;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion(DropMoreMain.VERSION)]
-[assembly: AssemblyFileVersion(DropMoreMain.VERSION)]
+[assembly: AssemblyVersion(DropMoreLootMain.VERSION)]
+[assembly: AssemblyFileVersion(DropMoreLootMain.VERSION)]

@@ -7,9 +7,11 @@
     <ProjectGuid>{6BFECD5B-47DE-40F4-97E7-87B49249BEF7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DropMore</RootNamespace>
-    <AssemblyName>DropMore</AssemblyName>
+    <RootNamespace>DropMoreLoot</RootNamespace>
+    <AssemblyName>DropMoreLoot</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>10</LangVersion>
+    <Nullable>enable</Nullable>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -72,9 +74,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DropMore.cs" />
+    <Compile Include="DropMoreLoot.cs" />
     <Compile Include="Patches\DropPatches.cs" />
+    <Compile Include="Patches\GamePatches.cs" />
+    <Compile Include="Patches\PlayerPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TastyUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

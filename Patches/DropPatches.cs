@@ -22,11 +22,11 @@ namespace ModDrops
                 List<DropTable.DropData> list = new List<DropTable.DropData>(__instance.m_drops);
                 int amount;
                 
-                amount = UnityEngine.Random.Range(__instance.m_dropMin, __instance.m_dropMax + 1) * DropMoreMain.materialMultiplier.Value;
+                amount = UnityEngine.Random.Range(__instance.m_dropMin, __instance.m_dropMax + 1) * DropMoreLootMain.materialMultiplier.Value;
                 List<GameObject> dropList2 = __instance.GetDropList(amount);
                 foreach (DropTable.DropData dropData3 in list)
                 {
-                    int num2 = UnityEngine.Random.Range(dropData3.m_stackMin, dropData3.m_stackMax) * DropMoreMain.materialMultiplier.Value;
+                    int num2 = UnityEngine.Random.Range(dropData3.m_stackMin, dropData3.m_stackMax) * DropMoreLootMain.materialMultiplier.Value;
                     if (dropData3.m_item.name.Equals("Honey") || dropData3.m_item.name.Equals("QueenBee"))
                     {
                         for (int j = 0; j < num2; j++)
@@ -36,7 +36,7 @@ namespace ModDrops
                     }
                 }
                 __result = dropList2;
-                DropMoreMain.logger.LogInfo(dropList2);
+                DropMoreLootMain.logger.LogInfo(dropList2);
                 return false;
             }
         }
@@ -73,15 +73,15 @@ namespace ModDrops
                             }
                             if (num3 > 0)
                             {
-                                if (DropMoreMain.enableWhitelist.Value)
+                                if (DropMoreLootMain.enableWhitelist.Value)
                                 {
                                     if (drop.m_prefab != null)
                                     {
-                                        foreach (string value in DropMoreMain.whitelist)
+                                        foreach (string value in DropMoreLootMain.whitelist)
                                         {
                                             if (drop.m_prefab.name.Equals(value))
                                             {
-                                                list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3 * DropMoreMain.lootMultiplier.Value - num3));
+                                                list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3 * DropMoreLootMain.lootMultiplier.Value - num3));
                                             }
                                         }
                                         list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3));
@@ -89,7 +89,7 @@ namespace ModDrops
                                 }
                                 else
                                 {
-                                    list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3 * DropMoreMain.lootMultiplier.Value));
+                                    list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3 * DropMoreLootMain.lootMultiplier.Value));
                                 }
                             }
                         }
@@ -117,25 +117,25 @@ namespace ModDrops
                     return true;
                 }
                 int num = 0;
-                if (DropMoreMain.pickupMultiplier.Value >= 2)
+                if (DropMoreLootMain.pickupMultiplier.Value >= 2)
                 {
                     int i = 0;
                     while (i < __instance.m_amount)
                     {
-                        if (!DropMoreMain.enableWhitelist.Value)
+                        if (!DropMoreLootMain.enableWhitelist.Value)
                         {
                             goto IL_AA;
                         }
                         if (__instance.m_itemPrefab != null)
                         {
-                            using (List<string>.Enumerator enumerator = DropMoreMain.whitelist.GetEnumerator())
+                            using (List<string>.Enumerator enumerator = DropMoreLootMain.whitelist.GetEnumerator())
                             {
                                 while (enumerator.MoveNext())
                                 {
                                     string value = enumerator.Current;
                                     if (__instance.m_itemPrefab.name.Equals(value))
                                     {
-                                        __instance.Drop(__instance.m_itemPrefab, num++, DropMoreMain.pickupMultiplier.Value - 1);
+                                        __instance.Drop(__instance.m_itemPrefab, num++, DropMoreLootMain.pickupMultiplier.Value - 1);
                                     }
                                 }
                                 goto IL_C7;
@@ -146,7 +146,7 @@ namespace ModDrops
                         i++;
                         continue;
                     IL_AA:
-                        __instance.Drop(__instance.m_itemPrefab, num++, DropMoreMain.pickupMultiplier.Value - 1);
+                        __instance.Drop(__instance.m_itemPrefab, num++, DropMoreLootMain.pickupMultiplier.Value - 1);
                         goto IL_C7;
                     }
                 }
@@ -163,19 +163,19 @@ namespace ModDrops
             private static bool GetValuable(PickableItem __instance)
             {
                 Vector3 position = __instance.gameObject.transform.position + Vector3.up * 0.2f;
-                GameObject gameObject = DropMoreMain.Instantiate(__instance.m_itemPrefab.gameObject, position, __instance.gameObject.transform.rotation);
+                GameObject gameObject = DropMoreLootMain.Instantiate(__instance.m_itemPrefab.gameObject, position, __instance.gameObject.transform.rotation);
                 gameObject.GetComponent<Rigidbody>().velocity = Vector3.up * 4f;
                 ItemDrop component = gameObject.GetComponent<ItemDrop>();
-                if (DropMoreMain.enableWhitelist.Value)
+                if (DropMoreLootMain.enableWhitelist.Value)
                 {
-                    using (List<string>.Enumerator enumerator = DropMoreMain.whitelist.GetEnumerator())
+                    using (List<string>.Enumerator enumerator = DropMoreLootMain.whitelist.GetEnumerator())
                     {
                         if (enumerator.MoveNext())
                         {
                             string value = enumerator.Current;
                             if (component.m_itemData.m_dropPrefab.name.Equals(value))
                             {
-                                component.m_itemData.m_stack = __instance.GetStackSize() * DropMoreMain.pickupMultiplier.Value;
+                                component.m_itemData.m_stack = __instance.GetStackSize() * DropMoreLootMain.pickupMultiplier.Value;
                                 return false;
                             }
                             component.m_itemData.m_stack = __instance.GetStackSize();
@@ -183,7 +183,7 @@ namespace ModDrops
                         }
                     }
                 }
-                component.m_itemData.m_stack = __instance.GetStackSize() * DropMoreMain.pickupMultiplier.Value;
+                component.m_itemData.m_stack = __instance.GetStackSize() * DropMoreLootMain.pickupMultiplier.Value;
                 return false;
             }
         }
@@ -195,31 +195,20 @@ namespace ModDrops
             [HarmonyPrefix]
             private static bool FishStack(Fish __instance)
             {
-                if (DropMoreMain.enableWhitelist.Value)
+                if (DropMoreLootMain.enableWhitelist.Value)
                 {
-                    foreach (string value in DropMoreMain.whitelist)
+                    foreach (string value in DropMoreLootMain.whitelist)
                     {
                         if (__instance.m_pickupItem.name.Equals(value))
                         {
-                            __instance.m_pickupItemStackSize *= DropMoreMain.lootMultiplier.Value;
+                            __instance.m_pickupItemStackSize *= DropMoreLootMain.lootMultiplier.Value;
                         }
                     }
                     return true;
                 }
-                __instance.m_pickupItemStackSize *= DropMoreMain.lootMultiplier.Value;
+                __instance.m_pickupItemStackSize *= DropMoreLootMain.lootMultiplier.Value;
                 return true;
             }
         }
-
-       // [HarmonyPatch(typeof(Humanoid), "PickupPrefab")]
-
-    //    private static class Pickupprefab_Patch
-    //    {
-    //        [HarmonyPrefix]
-    //        private static void MaxStack(Humanoid __instance, ref GameObject prefab)
-    //        {
-    //            prefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_maxStackSize *= DropMoreMain.lootMultiplier.Value;
-    //        }
-    //    }
     }
 }
