@@ -1,9 +1,9 @@
-### Loot Multiplier for Valheim
+### Loot Multiplier for Valheim - DropMoreLoot
 
-This is a rebirth of Castix old Loot Multiplier mod.  Redone with permission from Castix  (SoCastix)      
+This is a rebirth of Castix Loot Multiplier mod.  Redone with permission from Castix  (SoCastix)      
 He no longer had the source and gave me permission to rebuild it and release to the gaming community.             
 
-This is mod multiplies loot drops when you destroy, kill or pick up something. Drop multiplier can be configured.
+This mod multiplies loot drops when you destroy, kill or pick up something. Drop multiplier can be configured.
 
 
 Installation (manual)                                                                                       
@@ -30,31 +30,28 @@ Item List from Modding Wiki﻿﻿
 ﻿
 
 
-Configuration                                                     
+### Configuration:                                                     
 
-## Settings file was created by plugin LootMultiplier v1.0.8
-## Plugin GUID: castix_LootMultiplier
 
-[General]
 
-## Material Multiplier
-# Setting type: Int32
-# Default value: 1
-Multiplier for resources = 1
+Material Multiplier
+- Setting type: Int32
+- Default value: 1
+- Multiplier for resources = 1
 
-##  Monster Drop Multiplier
-# Setting type: Int32
-# Default value: 1
-Multiplier for monster drops = 1
+Monster Drop Multiplier
+- Setting type: Int32
+- Default value: 1
+- Multiplier for monster drops = 1
 
-## Pickup Multiplier
-# Setting type: Int32
-# Default value: 1
-Multiplier for pickable objects = 1
+Pickup Multiplier
+- Setting type: Int32
+- Default value: 1
+- Multiplier for pickable objects = 1
 
 [Whitelist]
 
-## Whitelist
-# Setting type: Boolean
-# Default value: false
-Enable whitelist filter = false
+Whitelist
+- Setting type: Boolean
+- Default value: false
+- Enable whitelist filter = false
