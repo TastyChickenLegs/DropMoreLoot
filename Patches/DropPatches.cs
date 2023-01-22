@@ -8,46 +8,74 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 
-namespace ModDrops
-{
-    public class DropPatches
-    {
-        [HarmonyPatch(typeof(DropTable), "GetDropList", new Type[] { })]
+namespace ModDrops;
 
-        public static class MultiplyResources_Patch
+public class DropPatches
+{
+    [HarmonyPatch(typeof(DropTable), "GetDropList", new Type[] { })]
+
+    public static class MultiplyResources_Patch
+    {
+        [HarmonyPrefix]
+        private static bool MultiplyResources(DropTable __instance, ref List<GameObject> __result)
         {
-            [HarmonyPrefix]
-            private static bool MultiplyResources(DropTable __instance, ref List<GameObject> __result)
+            List<DropTable.DropData> list = new List<DropTable.DropData>(__instance.m_drops);
+            int amount;
+            if (DropMoreLootMain.enableWhitelist.Value)
             {
-                List<DropTable.DropData> list = new List<DropTable.DropData>(__instance.m_drops);
-                int amount;
-                
-                amount = UnityEngine.Random.Range(__instance.m_dropMin, __instance.m_dropMax + 1) * DropMoreLootMain.materialMultiplier.Value;
-                List<GameObject> dropList2 = __instance.GetDropList(amount);
-                foreach (DropTable.DropData dropData3 in list)
+                foreach (DropTable.DropData dropData in __instance.m_drops)
                 {
-                    int num2 = UnityEngine.Random.Range(dropData3.m_stackMin, dropData3.m_stackMax) * DropMoreLootMain.materialMultiplier.Value;
-                    if (dropData3.m_item.name.Equals("Honey") || dropData3.m_item.name.Equals("QueenBee"))
+                    if (dropData.m_item != null)
                     {
-                        for (int j = 0; j < num2; j++)
+                        foreach (string value in DropMoreLootMain.whitelist)
                         {
-                            dropList2.Add(dropData3.m_item);
+                            if (dropData.m_item.name.Equals(value))
+                            {
+                                amount = UnityEngine.Random.Range(__instance.m_dropMin, __instance.m_dropMax + 1) * DropMoreLootMain.materialMultiplier.Value;
+                                List<GameObject> dropList = __instance.GetDropList(amount);
+                                foreach (DropTable.DropData dropData2 in list)
+                                {
+                                    int num = UnityEngine.Random.Range(dropData2.m_stackMin, dropData2.m_stackMax) * DropMoreLootMain.materialMultiplier.Value;
+                                    if (dropData2.m_item.name.Equals("Honey") || dropData2.m_item.name.Equals("QueenBee"))
+                                    {
+                                        for (int i = 0; i < num; i++)
+                                        {
+                                            dropList.Add(dropData2.m_item);
+                                        }
+                                    }
+                                }
+                                __result = dropList;
+                                return false;
+                            }
                         }
                     }
                 }
-                __result = dropList2;
-                DropMoreLootMain.logger.LogInfo(dropList2);
-                return false;
+                return true;
             }
+            amount = UnityEngine.Random.Range(__instance.m_dropMin, __instance.m_dropMax + 1) * DropMoreLootMain.materialMultiplier.Value;
+            List<GameObject> dropList2 = __instance.GetDropList(amount);
+            foreach (DropTable.DropData dropData3 in list)
+            {
+                int num2 = UnityEngine.Random.Range(dropData3.m_stackMin, dropData3.m_stackMax) * DropMoreLootMain.materialMultiplier.Value;
+                if (dropData3.m_item.name.Equals("Honey") || dropData3.m_item.name.Equals("QueenBee"))
+                {
+                    for (int j = 0; j < num2; j++)
+                    {
+                        dropList2.Add(dropData3.m_item);
+                    }
+                }
+            }
+            __result = dropList2;
+            return false;
         }
         [HarmonyPatch(typeof(CharacterDrop), "GenerateDropList")]
 
         public static class MultiplyLoot_Patch
         {
-             [HarmonyPrefix]
+            [HarmonyPrefix]
             private static bool MultiplyLoot(CharacterDrop __instance, ref List<KeyValuePair<GameObject, int>> __result)
             {
-               
+
 
                 List<KeyValuePair<GameObject, int>> list = new List<KeyValuePair<GameObject, int>>();
                 int num = __instance.m_character ? Mathf.Max(1, (int)Mathf.Pow(2f, (float)(__instance.m_character.GetLevel() - 1))) : 1;
@@ -101,7 +129,7 @@ namespace ModDrops
         }
 
         [HarmonyPatch(typeof(Pickable), "RPC_Pick")]
-        
+
 
         public static class Pickable_Patch
         {
@@ -155,7 +183,7 @@ namespace ModDrops
         }
 
         [HarmonyPatch(typeof(PickableItem), "Drop")]
-        
+
 
         public static class Getvaluable_Patch
         {
@@ -189,7 +217,7 @@ namespace ModDrops
         }
 
         [HarmonyPatch(typeof(Fish), "RPC_Pickup")]
-       
+
         private static class Rpgpickup_Patch
         {
             [HarmonyPrefix]

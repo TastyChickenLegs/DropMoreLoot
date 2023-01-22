@@ -97,11 +97,11 @@ _____________
 
 1.0.3
 
-- fix for resources multiplier
+- Fix for multiplier of resources
 
 1.0.2
 
-- fix for tree chopping null exception
+- Fix for broken chopping of trees and null exception
 
 1.0.0
 
