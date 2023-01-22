@@ -19,7 +19,7 @@ namespace DropMore
         public const string MODNAME = "DropMoreLoot";
         public const string AUTHOR = "TastyChickenLegs";
         public const string GUID = AUTHOR+"."+MODNAME;
-        public const string VERSION = "1.0.8";
+        public const string VERSION = "1.0.0";
         public static ManualLogSource logger;
         internal Harmony harmony;
         internal Assembly assembly;
@@ -58,9 +58,9 @@ namespace DropMore
             enableWhitelist = Config.Bind<bool>("Whitelist", "Enable whitelist filter", false, "Whitelist");
             enablePickUpRange = Config.Bind<bool>("Pickup", "Enable Pickup Range", false, "Enable Pickup Range");
             pickUpRange = Config.Bind<int>("Pickup", "Pickup Range", 1, new ConfigDescription("Auto Pickup Distance from Player", new AcceptableValueRange<int>(1, 5)));
-            //itemStackMultiplier = Config.Bind<int>("Stacking", "Item Stack Multiplier", 1, new ConfigDescription("Item Stacking Multiplier", new AcceptableValueRange<int>(1, 5)));
+            itemStackMultiplier = Config.Bind<int>("Stacking", "Item Stack Multiplier", 1, new ConfigDescription("Item Stacking Multiplier", new AcceptableValueRange<int>(1, 5)));
             itemsFloatInWater = Config.Bind<bool>("General", "Items Float in Water", false, "Items Always Float in Water");
-            //enableStacking = Config.Bind<bool>("Stacking", "Enable Stacking", false, "Use Stacking Feature");
+            enableStacking = Config.Bind<bool>("Stacking", "Enable Stacking", false, "Use Stacking Feature");
             whitelist = Enumerable.Distinct<string>(File.ReadAllLines(Path.GetDirectoryName(ass.Location) + "\\whitelist.txt")).ToList<string>();
             whitelistFile = Path.GetDirectoryName(ass.Location) + "\\whitelist.txt";
             

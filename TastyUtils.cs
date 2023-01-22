@@ -25,25 +25,5 @@ namespace DropMore
             return ZNetScene.instance == null || Player.m_localPlayer == null || Minimap.IsOpen() || Console.IsVisible() || TextInput.IsVisible() || ZNet.instance.InPasswordDialog() || Chat.instance?.HasFocus() == true || StoreGui.IsVisible() || InventoryGui.IsVisible() || Menu.IsVisible() || TextViewer.instance?.IsVisible() == true;
         }
 
-       
-        public static float applyModifierValue(float targetValue, float value)
-        {
-
-            if (value <= -100)
-                value = -100;
-
-            float newValue = targetValue;
-
-            if (value >= 0)
-            {
-                newValue = targetValue + ((targetValue / 100) * value);
-            }
-            else
-            {
-                newValue = targetValue - ((targetValue / 100) * (value * -1));
-            }
-
-            return newValue;
-        }
     }
 }

@@ -14,6 +14,7 @@ namespace DropMoreLoot.Patches
             {
                 if (DropMoreLootMain.enablePickUpRange.Value)
                 { 
+                    //convert int to float and set the pickup range
                 float autoPickupFloat = Convert.ToSingle(DropMoreLootMain.pickUpRange.Value);
                 __instance.m_autoPickupRange = autoPickupFloat;
                 }

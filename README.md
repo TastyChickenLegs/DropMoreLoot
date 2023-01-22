@@ -1,7 +1,9 @@
 ### Loot Multiplier for Valheim - DropMoreLoot
 
-This is a rebirth of Castix Loot Multiplier mod.  Redone with permission from Castix  (SoCastix)      
-He no longer had the source and gave me permission to rebuild it add features and release to the gaming community.  
+This is a rebirth of Castix's Loot Multiplier mod.  Redone with permission from Castix  (SoCastix)      
+Castix no longer had the source and gave me permission to rebuild it, add features and release to the gaming community.  
+
+Credit to Castix for the original idea and awesome mod "Loot Multiplyer".
 
 
 
@@ -13,13 +15,14 @@ He no longer had the source and gave me permission to rebuild it add features an
 > - floating loot
 > - configurable pickup range
 > - item stacking
+> - configurable whitelist - see below
 ___
 ### This mod is incompatible with Creature Level and Loot Control (CLLC) - Which is an amazing mod
 
-Most if not all of this mod's features are included in CLLC.  That being said, I've always liked the simplicity of this mod and have no desire to alter creature levels or need the sheer depth of settings and features that CLLC provides.
-It will failt to load if using CLLC. I did this to keep DropMoreLoot from breaking features of CLLC which is an incredibly popular well written mod.  
+Most, if not all of this mod's features are included in CLLC.  That being said, I've always liked the simplicity of this mod and have no desire to alter creature levels or need the sheer depth of settings and features that CLLC provides.
+`This mod will fail to load if using CLLC.` I did this to keep DropMoreLoot from breaking features of CLLC which is an incredibly popular well written mod.  
 
-Please don't create drama about this... There is no ill intent towards Smoothbrain, the writter of CLLC.
+Please don't create drama about this... I have no ill intent towards Smoothbrain (Blaxxun), the writter of CLLC.
 ___
 Installation (manual)                                                                                       
 
@@ -44,7 +47,7 @@ Item List from Modding Wiki﻿﻿
 
 ﻿
 
-
+![Configuration](https://i.ibb.co/WPMrK8w/lootsmall.png)
 ### Configuration:                                                     
 
 
@@ -80,7 +83,7 @@ Pickup radius
 - Default value: 1
 - Configure distance items are automatically picked up.
 
-
+![White List](https://i.imgur.com/a1uSfeB.png)
 
 [Whitelist]
 

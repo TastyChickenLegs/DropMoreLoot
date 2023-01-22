@@ -2,6 +2,7 @@
 using DropMoreLoot;
 using DropMore;
 using System;
+using UnityEngine;
 
 namespace DropMoreLoot.Patches
 {
@@ -12,18 +13,19 @@ namespace DropMoreLoot.Patches
         {
             private static void Prefix(ref ItemDrop __instance)
             {
-
+                // Add stacking for items
                 if (__instance.m_itemData.m_shared.m_maxStackSize > 1)
                 {
 
                     if (DropMoreLootMain.itemStackMultiplier.Value >= 1 || DropMoreLootMain.enableStacking.Value)
                     {
-                        float itemStackFloat = Convert.ToSingle(DropMoreLootMain.itemStackMultiplier.Value);
-                        __instance.m_itemData.m_shared.m_maxStackSize = (int)TastyUtils.applyModifierValue(__instance.m_itemData.m_shared.m_maxStackSize, itemStackFloat);
+                        int itemStackInt = DropMoreLootMain.itemStackMultiplier.Value;
+                        int value = __instance.m_itemData.m_shared.m_maxStackSize * itemStackInt;
+                        __instance.m_itemData.m_shared.m_maxStackSize = value;
                     }
                 }
 
-                // Add floating property to all dropped items.
+                // Add floating to dropped items.
                 if (!__instance.gameObject.GetComponent<Floating>() && DropMoreLootMain.itemsFloatInWater.Value)
                 {
                     __instance.gameObject.AddComponent<Floating>();
