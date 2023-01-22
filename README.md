@@ -1,11 +1,26 @@
 ### Loot Multiplier for Valheim - DropMoreLoot
 
 This is a rebirth of Castix Loot Multiplier mod.  Redone with permission from Castix  (SoCastix)      
-He no longer had the source and gave me permission to rebuild it and release to the gaming community.             
-
-This mod multiplies loot drops when you destroy, kill or pick up something. Drop multiplier can be configured.
+He no longer had the source and gave me permission to rebuild it add features and release to the gaming community.  
 
 
+
+
+> ### This mod does the following:
+
+> - multiplies loot drops when you destroy, kill or pick up something. Drop multiplier can be configured.  
+ 
+> - floating loot
+> - configurable pickup range
+> - item stacking
+___
+### This mod is incompatible with Creature Level and Loot Control (CLLC) - Which is an amazing mod
+
+Most if not all of this mod's features are included in CLLC.  That being said, I've always liked the simplicity of this mod and have no desire to alter creature levels or need the sheer depth of settings and features that CLLC provides.
+It will failt to load if using CLLC. I did this to keep DropMoreLoot from breaking features of CLLC which is an incredibly popular well written mod.  
+
+Please don't create drama about this... There is no ill intent towards Smoothbrain, the writter of CLLC.
+___
 Installation (manual)                                                                                       
 
 If you are installing this manually, do the following
@@ -49,9 +64,39 @@ Pickup Multiplier
 - Default value: 1
 - Multiplier for pickable objects = 1
 
+
+Items Float in Water
+
+- Default value: true
+- Enable Items to float in water
+
+Stacking
+
+- Default value: false
+- Enable Items to stack
+
+Pickup radius
+
+- Default value: 1
+- Configure distance items are automatically picked up.
+
+
+
 [Whitelist]
 
 Whitelist
 - Setting type: Boolean
 - Default value: false
 - Enable whitelist filter = false
+_____________
+##	Now for the shameless plug
+
+> ### My Other Mods:
+>>* [No Smoke Stay Lit](https://valheim.thunderstore.io/package/TastyChickenLeg/NoSmokeStayLit/)
+>>* [No Smoke Simplified](https://valheim.thunderstore.io/package/TastyChickenLegs/NoSmokeSimplified/)
+>>* [Honey Please](https://valheim.thunderstore.io/package/TastyChickenLegs/HoneyPlease/)
+>>* [Automatic Fuel](https://valheim.thunderstore.io/package/TastyChickenLeg/AutomaticFuel/)
+>>* [Forsaken Powers Plus](https://valheim.thunderstore.io/package/TastyChickenLeg/ForsakenPowersPlus/)
+>>* [Recycle Plus](https://valheim.thunderstore.io/package/TastyChickenLeg/RecyclePlus/)
+>>* [Blast Furnace Takes All](https://valheim.thunderstore.io/package/TastyChickenLeg/BlastFurnaceTakesAll/)
+>>* [Timed Torches Stay Lit](https://valheim.thunderstore.io/package/TastyChickenLeg/TimedTorchesStayLit/)

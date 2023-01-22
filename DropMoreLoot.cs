@@ -13,7 +13,7 @@ using UnityEngine;
 namespace DropMore
 {
     [BepInPlugin(GUID, MODNAME, VERSION)]
-    //[BepInIncompatibility("org.bepinex.plugins.valheim_plus")]
+    [BepInIncompatibility("org.bepinex.plugins.creaturelevelcontrol")]
     public class DropMoreLootMain : BaseUnityPlugin
     {
         public const string MODNAME = "DropMoreLoot";
@@ -32,9 +32,9 @@ namespace DropMore
         public static List<string> whitelist = null;
         public static string whitelistFile = null;
         public static ConfigEntry<int> pickUpRange = null;
-        //public static ConfigEntry<int> itemStackMultiplier = null;
+        public static ConfigEntry<int> itemStackMultiplier = null;
         public static ConfigEntry<bool> itemsFloatInWater = null;
-       // public static ConfigEntry<bool> enableStacking = null;
+        public static ConfigEntry<bool> enableStacking = null;
         public static ConfigEntry<bool> enablePickUpRange = null;
         
 
