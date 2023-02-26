@@ -18,6 +18,7 @@ namespace DropMoreLoot.Patches
                 float autoPickupFloat = Convert.ToSingle(DropMoreLootMain.pickUpRange.Value);
                 __instance.m_autoPickupRange = autoPickupFloat;
                 }
+                
 
             }
         }

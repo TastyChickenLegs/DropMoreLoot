@@ -1,28 +1,27 @@
 ### Loot Multiplier for Valheim - DropMoreLoot
 
+### Multiply Loot, Reduce Weight, Increase Pickup Radius, Make Things Float
+
 This is a rebirth of Castix's Loot Multiplier mod.  Redone with permission from Castix  (SoCastix)      
 Castix no longer had the source and gave me permission to rebuild it, add features and release to the gaming community.  
 
 Credit to Castix for the original idea and awesome mod "Loot Multiplier".
 
+Credit to d3xt3r for the idea to add configurable weight and for helping me test the new features.  Many props!!  
 
 
 
 > ### This mod does the following:
 
 > - multiplies loot drops when you destroy, kill or pick up something. Drop multiplier can be configured.  
- 
+> - configurable weight
 > - floating loot
 > - configurable pickup range
 > - item stacking
 > - configurable whitelist - see below
 ___
-### This mod is incompatible with Creature Level and Loot Control (CLLC) - Which is an amazing mod
 
-Most, if not all of this mod's features are included in CLLC.  That being said, I've always liked the simplicity of this mod and have no desire to alter creature levels or need the sheer depth of settings and features that CLLC provides.
-`This mod will fail to load if using CLLC.` I did this to keep DropMoreLoot from breaking features of CLLC which is an incredibly popular well written mod.  
 
-Please don't create drama about this... I have no ill intent towards Smoothbrain (Blaxxun), the writter of CLLC.
 ___
 Installation (manual)                                                                                       
 
@@ -30,7 +29,7 @@ If you are installing this manually, do the following
 1. Extract the archive into a folder. **Do not extract into the game folder.**
 2. Move the contents of `plugins` folder into `<GameDirectory>\Bepinex\plugins`.
 3. Run the game.
-4. To change the drop rate, use the config at \BepInEx\config\castix_LootMultiplier.cfg
+4. To change the drop rate, use the config at \BepInEx\config\TastyChickenLegs.DropMoreLoot.cfg
 
 
 How to set up the custom whitelist
@@ -47,25 +46,31 @@ Item List from Modding Wiki﻿﻿
 
 ﻿
 
-![Configuration](https://i.ibb.co/WPMrK8w/lootsmall.png)
+![Configuration](https://i.ibb.co/dkxj2Sb/dropconfig.png)
 ### Configuration:                                                     
 
 
 
 Material Multiplier
 - Setting type: Int32
-- Default value: 1
-- Multiplier for resources = 1
+- Default value: 3
+- Multiplier for resources = 1-5
 
 Monster Drop Multiplier
 - Setting type: Int32
-- Default value: 1
-- Multiplier for monster drops = 1
+- Default value: 3
+- Multiplier for monster drops = 1-5
 
 Pickup Multiplier
 - Setting type: Int32
-- Default value: 1
-- Multiplier for pickable objects = 1
+- Default value: 3
+- Multiplier for pickable objects = 1-5
+
+Weight Multiplier
+
+- Configure weight of items picked up
+- slider configures the multiplier
+- lower number means less weight.
 
 
 Items Float in Water
@@ -75,13 +80,13 @@ Items Float in Water
 
 Stacking
 
-- Default value: false
+- Default value: true
 - Enable Items to stack
 
 Pickup radius
 
-- Default value: 1
-- Configure distance items are automatically picked up.
+- Default value: 3
+- Configure distance items are automatically picked up. 1-10
 
 ![White List](https://i.imgur.com/a1uSfeB.png)
 
@@ -94,6 +99,19 @@ Whitelist
 _____________
 
 ### Versions:
+
+1.0.6
+
+- Added configurable weight of items picked up.
+
+
+1.0.5
+
+- fixed incompatiblity issues with other mods.
+
+1.0.4
+
+- increased allowable distance to 10
 
 1.0.3
 
@@ -111,11 +129,14 @@ _____
 ##	Now for the shameless plug
 
 > ### My Other Mods:
->>* [No Smoke Stay Lit](https://valheim.thunderstore.io/package/TastyChickenLeg/NoSmokeStayLit/)
+>>* [Drop More Loot](https://valheim.thunderstore.io/package/TastyChickenLegs/DropMoreLoot/)
+>>* [Automatic Fermenters](https://valheim.thunderstore.io/package/TastyChickenLegs/AutomaticFermenters/)
+>>* [No Smoke Stay Lit](https://valheim.thunderstore.io/package/TastyChickenLegs/NoSmokeStayLit/)
 >>* [No Smoke Simplified](https://valheim.thunderstore.io/package/TastyChickenLegs/NoSmokeSimplified/)
 >>* [Honey Please](https://valheim.thunderstore.io/package/TastyChickenLegs/HoneyPlease/)
->>* [Automatic Fuel](https://valheim.thunderstore.io/package/TastyChickenLeg/AutomaticFuel/)
->>* [Forsaken Powers Plus](https://valheim.thunderstore.io/package/TastyChickenLeg/ForsakenPowersPlus/)
->>* [Recycle Plus](https://valheim.thunderstore.io/package/TastyChickenLeg/RecyclePlus/)
->>* [Blast Furnace Takes All](https://valheim.thunderstore.io/package/TastyChickenLeg/BlastFurnaceTakesAll/)
->>* [Timed Torches Stay Lit](https://valheim.thunderstore.io/package/TastyChickenLeg/TimedTorchesStayLit/)
+>>* [Automatic Fuel](https://valheim.thunderstore.io/package/TastyChickenLegs/AutomaticFuel/)
+>>* [Forsaken Powers Plus](https://valheim.thunderstore.io/package/TastyChickenLegs/ForsakenPowersPlus/)
+>>* [Recycle Plus](https://valheim.thunderstore.io/package/TastyChickenLegs/RecyclePlus/)
+>>* [Blast Furnace Takes All](https://valheim.thunderstore.io/package/TastyChickenLegs/BlastFurnaceTakesAll/)
+>>* [Timed Torches Stay Lit](https://valheim.thunderstore.io/package/TastyChickenLegs/TimedTorchesStayLit/)
+>>* [Automatic Fermenters](https://valheim.thunderstore.io/package/TastyChickenLegs/AutomaticFermenters/)

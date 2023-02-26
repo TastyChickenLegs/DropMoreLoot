@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DropMoreLoot.cs" />
+    <Compile Include="Patches\ConfigurationManagerAttributes.cs" />
     <Compile Include="Patches\DropPatches.cs" />
     <Compile Include="Patches\GamePatches.cs" />
     <Compile Include="Patches\PlayerPatches.cs" />
@@ -84,9 +85,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
+    <None Include="Thunderstore\README.md" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Thunderstore\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -21,6 +21,7 @@ public class DropPatches
         {
             List<DropTable.DropData> list = new List<DropTable.DropData>(__instance.m_drops);
             int amount;
+            
             if (DropMoreLootMain.enableWhitelist.Value)
             {
                 foreach (DropTable.DropData dropData in __instance.m_drops)
@@ -101,6 +102,7 @@ public class DropPatches
                             }
                             if (num3 > 0)
                             {
+ 
                                 if (DropMoreLootMain.enableWhitelist.Value)
                                 {
                                     if (drop.m_prefab != null)
@@ -114,6 +116,7 @@ public class DropPatches
                                         }
                                         list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3));
                                     }
+
                                 }
                                 else
                                 {
@@ -211,6 +214,7 @@ public class DropPatches
                         }
                     }
                 }
+                
                 component.m_itemData.m_stack = __instance.GetStackSize() * DropMoreLootMain.pickupMultiplier.Value;
                 return false;
             }

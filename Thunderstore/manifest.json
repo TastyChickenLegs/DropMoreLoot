@@ -1,8 +1,8 @@
 {
   "name": "DropMoreLoot",
-  "description": "Rebirth of Castix's Loot Mutiplier with permission.  Configurable loot drops and now stacking",
-  "version_number": "1.0.3",
-  "website_url": "https://github.com/tastychickenlegs",
+  "description": "Configure drops, item weight, pickup distance, make things float and item stacking.  Configure drops, from mobs, animals, bosses, dungeons, ore.. plus  more",
+  "version_number": "1.0.6",
+  "website_url": "https://valheim.thunderstore.io/package/TastyChickenLegs/",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.1900"
   ]
