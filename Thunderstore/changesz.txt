@@ -1,0 +1,9 @@
+changes to calendar
+
+
+background sytling was var(--ha-card-background)
+changed to 
+
+weekday color var(--primary-text-color)
+day color var(--primary-text-color)
+month color var(--primary-text-color)

@@ -1,5 +1,4 @@
-﻿namespace LongerDays
-{
+﻿
     /// <summary>
     /// Class that specifies how a setting should be displayed inside the ConfigurationManager settings window.
     ///
@@ -104,4 +103,3 @@
         /// </summary>
         public System.Func<string, object> StrToObj;
     }
-}

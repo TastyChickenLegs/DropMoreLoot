@@ -100,6 +100,36 @@ _____________
 
 ### Versions:
 
+1.1.2
+
+- fixed graphical error when clicking the trophy tab
+
+
+1.1.1
+
+- updated for Valheim 0.271.22
+
+
+1.1.0
+
+- Udpated to Hildir's Request
+
+
+1.0.9
+
+- updated to newest Valheim Patch
+
+
+1.0.8
+
+- Fixed the ability to turn off stacking.  Now the disable checkbox works as it should.
+
+
+1.0.7
+
+- Add option to turn off weight setting - This is to make it more compatible with other mods.
+
+
 1.0.6
 
 - Added configurable weight of items picked up.

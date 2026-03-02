@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using DropMoreLoot;
-using DropMore;
 using System;
 
 namespace DropMoreLoot.Patches
@@ -12,12 +11,16 @@ namespace DropMoreLoot.Patches
         {
             private static void Postfix(ref Player __instance)
             {
-                if (DropMoreLootMain.enablePickUpRange.Value)
-                { 
-                    //convert int to float and set the pickup range
-                float autoPickupFloat = Convert.ToSingle(DropMoreLootMain.pickUpRange.Value);
-                __instance.m_autoPickupRange = autoPickupFloat;
+                try
+                {
+                    if (DropMoreLootMain.enablePickUpRange.Value)
+                    {
+                        //convert int to float and set the pickup range
+                        float autoPickupFloat = Convert.ToSingle(DropMoreLootMain.pickUpRange.Value);
+                        __instance.m_autoPickupRange = autoPickupFloat;
+                    }
                 }
+                catch { }
                 
 
             }

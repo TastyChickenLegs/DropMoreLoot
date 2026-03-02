@@ -1,9 +1,9 @@
 {
   "name": "DropMoreLoot",
-  "description": "Configure drops, item weight, pickup distance, make things float and item stacking.  Configure drops, from mobs, animals, bosses, dungeons, ore.. plus  more",
-  "version_number": "1.0.6",
-  "website_url": "https://valheim.thunderstore.io/package/TastyChickenLegs/",
+  "description": "Updated for Witch's Bog.  Configure drops, item weight, pickup distance, make things float and item stacking.  Configure drops, from mobs, animals, bosses, dungeons, ore.. plus  more",
+  "version_number": "1.2.5",
+  "website_url": "https://discord.gg/PQMXbUS6FH",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.1900"
+    "denikson-BepInExPack_Valheim-5.4.2101"
   ]
 }

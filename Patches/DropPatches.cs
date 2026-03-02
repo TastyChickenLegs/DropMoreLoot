@@ -1,10 +1,10 @@
 ﻿using HarmonyLib;
-using DropMore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DropMoreLoot;
 using UnityEngine;
 
 
@@ -28,8 +28,12 @@ public class DropPatches
                 {
                     if (dropData.m_item != null)
                     {
-                        foreach (string value in DropMoreLootMain.whitelist)
+                        //changed to move the whitelist to synchronize with server for multiplayer
+
+                        foreach (string value in DropMoreLootMain.whitelistitems.Value.Split(','))
+                        //foreach (string value in DropMoreLootMain.whitelist)
                         {
+                            
                             if (dropData.m_item.name.Equals(value))
                             {
                                 amount = UnityEngine.Random.Range(__instance.m_dropMin, __instance.m_dropMax + 1) * DropMoreLootMain.materialMultiplier.Value;
@@ -82,6 +86,8 @@ public class DropPatches
                 int num = __instance.m_character ? Mathf.Max(1, (int)Mathf.Pow(2f, (float)(__instance.m_character.GetLevel() - 1))) : 1;
                 foreach (CharacterDrop.Drop drop in __instance.m_drops)
                 {
+                  
+
                     if (!(drop.m_prefab == null))
                     {
                         float num2 = drop.m_chance;
@@ -107,8 +113,10 @@ public class DropPatches
                                 {
                                     if (drop.m_prefab != null)
                                     {
-                                        foreach (string value in DropMoreLootMain.whitelist)
+                                        foreach (string value in DropMoreLootMain.whitelistitems.Value.Split(','))
+                                            //foreach (string value in DropMoreLootMain.whitelist)
                                         {
+
                                             if (drop.m_prefab.name.Equals(value))
                                             {
                                                 list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3 * DropMoreLootMain.lootMultiplier.Value - num3));
@@ -120,7 +128,14 @@ public class DropPatches
                                 }
                                 else
                                 {
-                                    list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3 * DropMoreLootMain.lootMultiplier.Value));
+                                    //this looks for the zill drop and only allows 1 to spawn.
+                                    if (drop.m_prefab.name.Equals("GoblinShaman_Hildir"))
+                                        list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3 * 1));
+
+                                    //if not the zill boss apply the desired multiplier
+                                    else
+                                        list.Add(new KeyValuePair<GameObject, int>(drop.m_prefab, num3 * DropMoreLootMain.lootMultiplier.Value));
+
                                 }
                             }
                         }
@@ -138,7 +153,7 @@ public class DropPatches
         {
             [HarmonyPrefix]
             private static bool MultiplyPickables(Pickable __instance)
-            {
+                {
                 if (!__instance.m_nview.IsOwner())
                 {
                     return true;
@@ -177,7 +192,7 @@ public class DropPatches
                         i++;
                         continue;
                     IL_AA:
-                        __instance.Drop(__instance.m_itemPrefab, num++, DropMoreLootMain.pickupMultiplier.Value - 1);
+                                __instance.Drop(__instance.m_itemPrefab, num++, DropMoreLootMain.pickupMultiplier.Value - 1);
                         goto IL_C7;
                     }
                 }
@@ -195,9 +210,9 @@ public class DropPatches
             {
                 Vector3 position = __instance.gameObject.transform.position + Vector3.up * 0.2f;
                 GameObject gameObject = DropMoreLootMain.Instantiate(__instance.m_itemPrefab.gameObject, position, __instance.gameObject.transform.rotation);
-                gameObject.GetComponent<Rigidbody>().velocity = Vector3.up * 4f;
+                gameObject.GetComponent<Rigidbody>().linearVelocity = Vector3.up * 4f;
                 ItemDrop component = gameObject.GetComponent<ItemDrop>();
-                if (DropMoreLootMain.enableWhitelist.Value)
+                    if (DropMoreLootMain.enableWhitelist.Value)
                 {
                     using (List<string>.Enumerator enumerator = DropMoreLootMain.whitelist.GetEnumerator())
                     {
@@ -215,7 +230,7 @@ public class DropPatches
                     }
                 }
                 
-                component.m_itemData.m_stack = __instance.GetStackSize() * DropMoreLootMain.pickupMultiplier.Value;
+                    component.m_itemData.m_stack = __instance.GetStackSize() * DropMoreLootMain.pickupMultiplier.Value;
                 return false;
             }
         }
