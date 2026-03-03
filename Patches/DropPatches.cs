@@ -174,7 +174,11 @@ public class DropPatches
                         }
                         if (__instance.m_itemPrefab != null)
                         {
-                            using (List<string>.Enumerator enumerator = DropMoreLootMain.whitelist.GetEnumerator())
+
+
+                            //foreach (string value in DropMoreLootMain.whitelistitems.Value.Split(','))
+                            //using (List<string>.Enumerator enumerator = DropMoreLootMain.whitelist.GetEnumerator())
+                            using (IEnumerator<string> enumerator = DropMoreLootMain.whitelistitems.Value.Split(',').AsEnumerable().GetEnumerator())
                             {
                                 while (enumerator.MoveNext())
                                 {
@@ -214,7 +218,8 @@ public class DropPatches
                 ItemDrop component = gameObject.GetComponent<ItemDrop>();
                     if (DropMoreLootMain.enableWhitelist.Value)
                 {
-                    using (List<string>.Enumerator enumerator = DropMoreLootMain.whitelist.GetEnumerator())
+                    //using (List<string>.Enumerator enumerator = DropMoreLootMain.whitelist.GetEnumerator())
+                    using (IEnumerator<string> enumerator = DropMoreLootMain.whitelistitems.Value.Split(',').AsEnumerable().GetEnumerator())
                     {
                         if (enumerator.MoveNext())
                         {
